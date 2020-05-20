@@ -1,4 +1,4 @@
-# CALCOLARE PI GRECO MEDIANTE I DUE METODI TRAPEZOIDE E MONTECARLO CON ISTANZE T2.XLARGE 
+﻿# CALCOLARE PI GRECO MEDIANTE I DUE METODI TRAPEZOIDE E MONTECARLO CON ISTANZE T2.XLARGE 
 
 
 #### TRAPEZIOIDE
@@ -24,29 +24,4 @@ In questo caso ho utilizzato 3 istanze totali.
 Nella soluzione "montecarlo.c" ho utilizzato l'operazione MPI_Reduce, ci sono le funzioni
 CountMontecarlo il cui calcola il lavoro per ogni processore e provvederà a calcolare i numeri random, mentre la funzione calcolaPi in questo caso
 calcolerà il valore finale di Pi Greco . Anche qui ho sviluppato un DEBUG, in cui basta settare la variabile globale DEBUG a true. 
-
-Questa soluzione verrà compilata ed eseguita in questo modo:
-
- 		- mpicc -fopenmp montecarlo.c -o montecarlo
-		- mpirun -np numeridiprocessori[1 a 12] --hostfile machinefile ./montecarlo 10000000
-
-(*10000000 per confrontare montecarlo e trapezioReduce con lo stesso numero di iterazioni)
-
-Il file machinefile è così definito:
-
-MACHINEFILE
-- localhost slots=4
-- 172.31.46.127 slots=4
-- 172.31.44.15 slots=4
-
-
-Per ogni np ho effettuato 5 esecuzioni e ho calcolato la media.
-
--  https://ibb.co/NjNPmFV
-
-Riportando la media su un grafico risulta che : 
-
--  (2) https://ibb.co/3MBZzQ1
-
-Il file montecarlo.c è contenuto nella cartella Montecarlo
 
